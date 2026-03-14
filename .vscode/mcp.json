@@ -1,8 +1,31 @@
 {
-    "servers": {
-        "book-server": {
-            "command": "python",
-            "args": ["mcp_servers/book_tools_server.py"]
-        }
-    }
+	"servers": {
+		"book-server": {
+			// we can also have URL here if its running at remote host
+			"command": "python",
+			"args": [
+				"mcp_servers/book_tools_server.py"
+			],
+			"tools": [
+				"list_available_books",
+				"get_book_content",
+				"get_book_preview",
+				"search_in_book",
+				"get_book_statistics",
+				"compare_books"
+			],
+			"resources": [
+				"books://catalog",
+				"books://featured",
+				"books://search-guide"
+			],
+			"prompts": [
+				"analyze_book",
+				"compare_books",
+				"book_search_workflow"
+			],
+			"type": "stdio"
+		},
+	},
+	"inputs": []
 }
